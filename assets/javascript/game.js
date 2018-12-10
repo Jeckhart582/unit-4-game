@@ -1,36 +1,71 @@
 // 1. Make variables for each crystal and assign them a random value that last for the length of the "round".
+    // 1 ed -  instead of making a variable for each crystal, I made a loop that applies classes and attributes to each crystal
 // 2. Generate a random number the user has to guess.
 // 3. Display the value of the crystal that the user had clicked on.
 // 4. Add the values of the crystals to the total of user guess.
 // 5. If the userValue is equal to the random number, add a point to wins and reset the game.
 // 6. If the userValue is greater than the random number, track a loss and reset the game.
 
-// Variables needed: yellowCrystal, redCrystal, blueCrystal, greenCrystal, randomNumber, userGuess, totalWin, totalLoss,
+// Variables needed: yellowCrystal, redCrystal, blueCrystal, greenCrystal, randomNumber, userGoal, totalWin, totalLoss,
 // isEqualToo
-// Functions needed: generateCrystalNumber(1-12), generateRandomNumber (19-120), add crystal values to each other
+// Functions needed: refresh the crystal number, refresh the "goal" nubmers, and basic addition of crystal values to equal goal.
 var images = ["./assets/images/blue.png", "./assets/images/green.jpg", "./assets/images/yellow.png", "./assets/images/red.png"]
 var totalWins = 0;
 var totalLoss = 0;
+var score = 0;
 
+function randomNumberFunction () {
+    goalNumber = Math.floor(Math.random() * 102) + 19;
+}
 
 function refreshCrystals () {
     for ( var i = 0; i < images.length; i++) {
+        // Selects the image and ties it to a variable
         var crystal = $("<img>");
+        // Adds a class of "crystal" to the variable crystal
         crystal.addClass("crystal");
+        // Applies an images to the variable of crystal, which gets looped for each image
         crystal.attr("src", images[i]);
+        // Applies a random value between 1 and 12 to each instances of the array
         crystal.attr("value", (Math.floor(Math.random() * 12) + 1));
+        // Adds uniform height to each crystal
         crystal.attr("height", "100");
+        // Selects the .html space and appends each crystal variable
         $(".image-container").append(crystal);
     }
 }
 
 function refreshNumbers () {
-    var goalNumber = Math.floor((Math.random() * 101) + 19);
-    $(".randomNumber-text").text(goalNumber);
+    // Applies the interger to the .html space
+    $(".randomNumber-text").text("Your goal is: " + goalNumber);
+    // Tracks the number of wins
     $("#wins-text").text("Wins: " + totalWins)
+    // Selects and tracks the number of losses
     $("#loss-text").text("Losses: " + totalLoss);
 }
 
+function resetGame() {
+    randomNumberFunction();
+    score = 0;
+    refreshCrystals ();
+}
+
+randomNumberFunction();
 refreshCrystals();
 refreshNumbers();
+
+function onClick () {
+    score += parseInt($(this).attr("value"));
+    $("#score-text").html("Your total is:" + score);
+    if (score == goalNumber) {
+        $("wins-text").text("Wins: " + totalWins++);
+        resetGame();
+    }
+    else if (score > goalNumber) {
+        $("#loss-text").text("Losses: " + totalLoss++);
+        resetGame();
+    };
+};
+
+$(document).on("click", ".crystal", onClick);
 
