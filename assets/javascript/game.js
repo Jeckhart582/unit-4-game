@@ -6,8 +6,7 @@
 // 5. If the userValue is equal to the random number, add a point to wins and reset the game.
 // 6. If the userValue is greater than the random number, track a loss and reset the game.
 
-// Variables needed: yellowCrystal, redCrystal, blueCrystal, greenCrystal, randomNumber, userGoal, totalWin, totalLoss,
-// isEqualToo
+// Variables needed: yellowCrystal, redCrystal, blueCrystal, greenCrystal, randomNumber, userGoal, totalWin, totalLoss
 // Functions needed: refresh the crystal number, refresh the "goal" nubmers, and basic addition of crystal values to equal goal.
 var images = ["./assets/images/blue.png", "./assets/images/green.jpg", "./assets/images/yellow.png", "./assets/images/red.png"]
 var totalWins = 0;
@@ -36,8 +35,6 @@ function refreshCrystals () {
 }
 
 function refreshNumbers () {
-    // Applies the interger to the .html space
-    $(".randomNumber-text").text("Your goal is: " + goalNumber);
     // Tracks the number of wins
     $("#wins-text").text("Wins: " + totalWins)
     // Selects and tracks the number of losses
@@ -45,20 +42,29 @@ function refreshNumbers () {
 }
 
 function resetGame() {
+    // Reset the random computer number
     randomNumberFunction();
+    // Reset the goal score to zero
     score = 0;
+    // Empty out the crystal images
+    $(".image-container").empty();
+    // Refresh the values on crystals
     refreshCrystals ();
-}
+     // Applies the interger to the .html space
+     $(".randomNumber-text").text("Your goal is: " + goalNumber);
+};
 
-randomNumberFunction();
-refreshCrystals();
+resetGame();
 refreshNumbers();
 
 function onClick () {
+    // Adds the attribute "value" of this "crystal" to the score
     score += parseInt($(this).attr("value"));
+    // Selects score text, and writes the new total in the html
     $("#score-text").html("Your total is:" + score);
+    // Keeps track of score and resets on victory or loss
     if (score == goalNumber) {
-        $("wins-text").text("Wins: " + totalWins++);
+        $("#wins-text").text("Wins: " + totalWins++);
         resetGame();
     }
     else if (score > goalNumber) {
@@ -67,5 +73,5 @@ function onClick () {
     };
 };
 
-$(document).on("click", ".crystal", onClick);
+$(document).on("click", ".crystal", onClick)
 

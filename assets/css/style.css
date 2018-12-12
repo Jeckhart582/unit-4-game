@@ -7,12 +7,12 @@
 
 .main-body {
     background: green;
-    width: 400px;
     padding: 20px;
 }
 
 .randomNumber-text {
     background: lightblue;
+    padding: 40px;
 }
 
 .score-box {
