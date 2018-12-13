@@ -1,20 +1,50 @@
+body {
+    background-image: url("assets\images\tiny-squares.png");
+   }
+
+
 .jumbotron {
-    background : orange !important;
+    background : pink !important;
     width: 100%;
     text-align: center;
     margin: 0px !important;
+    text-shadow: 2px 3px yellow;
+    border: outset;
 }
 
 .main-body {
-    background: green;
+    background: lightgreen;
     padding: 20px;
+    border: solid;
 }
 
 .randomNumber-text {
-    background: lightblue;
+    background: yellow;
     padding: 40px;
+    border: outset;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
 }
 
 .score-box {
-    background: plum;
+    background: lightblue;
+    border: outset;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.image-container {
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#score-text {
+    background: lightblue;
+    border: outset;
+    font-size: 25px;
+    text-align: center;
+    padding: 40px;
+    width: 100%;
 }

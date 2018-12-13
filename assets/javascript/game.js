@@ -28,7 +28,8 @@ function refreshCrystals () {
         // Applies a random value between 1 and 12 to each instances of the array
         crystal.attr("value", (Math.floor(Math.random() * 12) + 1));
         // Adds uniform height to each crystal
-        crystal.attr("height", "100");
+        crystal.attr("height", "200");
+        crystal.attr("width", "200");
         // Selects the .html space and appends each crystal variable
         $(".image-container").append(crystal);
     }
@@ -61,7 +62,7 @@ function onClick () {
     // Adds the attribute "value" of this "crystal" to the score
     score += parseInt($(this).attr("value"));
     // Selects score text, and writes the new total in the html
-    $("#score-text").html("Your total is:" + score);
+    $("#score-text").html("Your total is: " + score);
     // Keeps track of score and resets on victory or loss
     if (score == goalNumber) {
         $("#wins-text").text("Wins: " + totalWins++);

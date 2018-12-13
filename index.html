@@ -19,13 +19,13 @@
         <h1>Crystals Collector Game!</h1>
     </div>
 
-    <div class="containter">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="main-body">
                     <p>
                         You wil be give a random number at the start of the game.
-                        There are four crystals below. By click on a crystal, you will
+                        There are four crystals below. By clicking on a crystal, you will
                         add a specific amount of points to your total score.
                     </p>
 
@@ -44,8 +44,15 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="randomNumber-text">
+                <div class = "row score">
+                    <div class="randomNumber-text">
                     Random number goes here
+                    </div>
+                </div>
+                <div class = "row guess">
+                    <div id="score-text">
+                        Your total is: --
+                    </div>
                 </div>
             </div>
 
@@ -56,9 +63,6 @@
                     </div>
                     <div id="loss-text">
                         Losses:
-                    </div>
-                    <div id="score-text">
-                        Score:
                     </div>
                 </div>
             </div>
