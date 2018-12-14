@@ -65,11 +65,13 @@ function onClick () {
     $("#score-text").html("Your total is: " + score);
     // Keeps track of score and resets on victory or loss
     if (score == goalNumber) {
-        $("#wins-text").text("Wins: " + totalWins++);
+        totalwins++;
+        $("#wins-text").text("Wins: " + totalWins);
         resetGame();
     }
     else if (score > goalNumber) {
-        $("#loss-text").text("Losses: " + totalLoss++);
+        totalLoss++;
+        $("#loss-text").text("Losses: " + totalLoss);
         resetGame();
     };
 };

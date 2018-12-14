@@ -1,7 +1,3 @@
-body {
-    background-image: url("assets\images\tiny-squares.png");
-   }
-
 
 .jumbotron {
     background : pink !important;
@@ -36,8 +32,6 @@ body {
 
 .image-container {
     padding: 20px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 #score-text {
