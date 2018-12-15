@@ -65,7 +65,7 @@ function onClick () {
     $("#score-text").html("Your total is: " + score);
     // Keeps track of score and resets on victory or loss
     if (score == goalNumber) {
-        totalwins++;
+        totalWins++;
         $("#wins-text").text("Wins: " + totalWins);
         resetGame();
     }
